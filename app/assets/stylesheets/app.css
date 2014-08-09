@@ -1,0 +1,20 @@
+select.radius {
+    border-radius: 3px;
+}
+
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+    margin: 0 0 0.88889rem;
+}
+
+.error input, .error textarea, .error select {
+    margin-bottom: 0;
+}
+
+.autocomplete-selected {
+    background-color: #00a2d3;
+    color: #fff;
+    transition: all 100ms ease-in-out 0s;
+}
+.autocomplete-selected strong {
+    color: #fff !important;
+}

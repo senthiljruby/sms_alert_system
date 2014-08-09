@@ -1,0 +1,30 @@
+  <div class="row">
+    <%= form_tag sessions_path do %>
+      <fieldset>
+        <legend>Login Window</legend>
+        <div class="field">
+          <label for="username">Username</label><br>
+          <input type="text" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="field">
+          <label for="password">Password</label><br>
+          <input type="password" id="password" name="password" placeholder="******">
+        </div>
+        <%= submit_tag "Login", :class=>"button" %>
+        <button id="clear" class="button">Clear</button>
+      </fieldset>
+    <% end %>
+  </div>
+
+<script>
+  $(document).ready(function(){
+//    $('a.reveal-link').trigger('click');
+    $("#clear").click(function(event){
+      event.preventDefault();
+      $('#username').val("");
+      $('#password').val("");
+//      location.replace("http://localhost:3000");
+    })
+  });
+
+</script>

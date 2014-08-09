@@ -1,0 +1,79 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>
+
+<div class="row" style="margin-top:10%">
+    <div align="center"><h2>Create an Account</h2></div>
+       <br />
+       <div class="medium-6 medium-centered large-centered large-6 columns">
+     <form data-abide>
+          <div class="name-field">
+          <label>First Name</label>
+          <input type="text" required></input>
+          <small class="error" data-error-message="">A first and last name is required.</small>
+          </div>
+          <div class="name-field">
+          <label>Last Name</label>
+          <input type="text" required></input>
+          <small class="error" data-error-message="">A first and last name is required.</small>
+          </div>
+          <div class="email-field">
+          <label>Email</label>
+        <input id="email" type="email" required></input>
+       <small class="error">An email address is required.</small>
+       </div>
+          <div class="email-field">
+          <label>Re-enter Email</label>
+        <input type="email" required></input>
+       <small class="error">The emails must match.</small>
+       </div>
+
+           <label for="password">Password</label>
+           <input id="password" type="password" required="" name="password"></input>
+           <small class="error"></small>
+
+
+           <label for="confirmPassword">Confirm Password</label>
+           <input id="confirmPassword" type="password" data-equalto="password" required="" name="confirmPassword" data-invalid=""></input>
+           <small class="error" data-error-message="">Passwords must match.</small>
+
+           <label><small>By creating an account you have read and agree to the <a href="#">terms and conditions</a>.</small></label>
+           <input id="checkbox1" type="checkbox" required></input><label for="checkbox1">I Agree</label>
+           <small class="error">You must agree to the terms and conditions.</small>
+          <br />
+          <br />         
+          <button type="submit">Create Account</button>
+          <br />
+          <small>Sign in with <a href="#">Facebook</a>, <a href="#">Google</a>, or <a href="#">Twitter</a>.</small>
+
+      </form>
+      </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="row">
+  <div id="login_window">
+    <%= form_for(@student) do |f| %>
+      <fieldset>
+        <legend>Create Student</legend>
+        <% if @student.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+            <ul>
+              <% @student.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :father_name %><br>
+          <%= f.text_field :father_name %>
+        </div>
+        <div class="field">
+          <%= f.label :dob %><br>
+          <%= f.text_field :dob, :class=>"span2",  :value =>  @student.dob.blank? ? Date.today.strftime("%d/%m/%Y") : @student.dob, "data-date" => "17/4/1986", "data-date-format" => "dd/mm/yyyy" %>
+        </div>
+        <div class="field">
+          <%= f.label :standard %><br>
+          <%= f.select :standard, options_for_select((1..12).to_a) %>
+        </div>
+        <div class="field">
+          <%= f.label :section %><br>
+          <%= f.select :section, options_for_select(('A'..'Z').to_a) %>
+        </div>
+        <div class="field">
+          <%= f.label :phone_number %><br>
+          <%= f.text_field :phone_number %>
+        </div>
+        <div class="field">
+          <%= f.label :email %><br>
+          <%= f.text_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :address %><br>
+          <%= f.text_area :address, :rows => 5 %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Create Student", :class => "button tiny" %>
+          <%= link_to 'Back', students_path, :class => "button tiny" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('#student_dob').fdatepicker();
+  });
+</script>

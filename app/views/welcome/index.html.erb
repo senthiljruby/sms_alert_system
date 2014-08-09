@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 style="text-align:center"><%= logo_title %></h2>
+    <!-- <p>This is version <strong>3.2.5</strong> generated on January 26, 2013.</p> -->
+    <hr />
+  </div>
+</div>
+
+<div class="row">
+  <div class="six columns" style="margin-left:250px; width:500px;">
+    <dl class="accordion" data-accordion>
+      <dd class="accordion-navigation">
+        <a href="#panel1b">Students</a>
+        <div id="panel1b" class="content active">
+          <li><%= link_to "Create Student", new_student_path %></li>
+          <li><%= link_to "Students List", students_path %></li>
+        </div>
+      </dd>
+      <dd class="accordion-navigation">
+        <a href="#panel2b">Teachers</a>
+        <div id="panel2b" class="content">
+          <li><%= link_to "Create Teaching Staff", new_teaching_staff_path %></li>
+          <li><%= link_to "Teaching Staff List", teaching_staffs_path %></li>
+        </div>
+      </dd>
+      <dd class="accordion-navigation">
+        <a href="#panel3b">Non Teaching Staffs</a>
+        <div id="panel3b" class="content">
+          <li><%= link_to "Create Students", new_student_path %></li>
+          <li><%= link_to "Students List", students_path %></li>
+        </div>
+      </dd>
+      <dd class="accordion-navigation">
+        <a href="#panel4b">Messaging Service</a>
+        <div id="panel4b" class="content">
+          <li><%= link_to "Announcements", "#" %></li>
+          <li><%= link_to "Special Events", "#" %></li>
+          <li><%= link_to "Quick Message", wishes_index_path %></li>
+        </div>
+      </dd>
+    </dl>
+  </div>
+</div>

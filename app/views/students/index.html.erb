@@ -1,0 +1,46 @@
+<div class="row">
+  <h1 style="text-align:center">Listing students</h1>
+  <div>
+    <%= form_tag(students_path, :method => "get", id: "search-form") do %>
+      <table>
+        <tr>
+          <td><%= text_field_tag :search, params[:search], placeholder: "Search..." %></td>
+          <td><%= submit_tag "Search", :name => nil, :class => "button tiny success" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Father name</th>
+        <th>Phone number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.father_name %></td>
+          <td><%= student.phone_number %></td>
+          <td><%= student.email %></td>
+          <td><%= student.address %></td>
+          <td><%= link_to 'Show', student %></td>
+          <td><%= link_to 'Edit', edit_student_path(student) %></td>
+          <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @students %>
+  <br>
+
+  <%#= link_to 'New Student', new_student_path %>
+</div>

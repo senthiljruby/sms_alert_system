@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "VETRI SCHOOL" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>    
+    
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="nav">
+        <%= render "welcome/main_menu" %>
+      </div>
+    </div>
+    <div class="content">
+      <div class="row">
+        <% if flash[:notice] %>
+          <div data-alert class="alert-box secondary radius">
+            <%= flash[:notice] %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= yield %>
+    <%#= javascript_include_tag "application" %>
+  </body>
+</html>

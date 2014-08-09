@@ -1,0 +1,42 @@
+<div class="row">
+  <div id="login_window">
+    <%= form_tag wishes_send_message_path do %>
+      <fieldset>
+        <legend>Birthday Wishes</legend>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Mobile Number
+              <input type="text" name="mobile_number" placeholder="9944425528" />
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-4 columns">
+            <label>Messages
+              <%= text_area_tag :messages, nil, :style => "height:200px; width:956px;" %>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-4 columns">
+            <%= submit_tag "Send", :class=>"button" %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <fieldset>
+    <legend>Message Preview</legend>
+    <div id="preview"></div>
+  </fieldset>
+</div>
+<script type="text/javascript">
+  $("#messages").keyup(function(){
+    message = $("#messages").val()
+    message = message + " - <%= signature %>"
+    $("#preview").html(message);
+  });
+</script>
