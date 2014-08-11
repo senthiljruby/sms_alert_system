@@ -18,7 +18,7 @@
         <th>Phone number</th>
         <th>Email</th>
         <th>Address</th>
-        <th></th>
+        <!-- <th></th> -->
         <th></th>
         <th></th>
       </tr>
@@ -32,9 +32,9 @@
           <td><%= student.phone_number %></td>
           <td><%= student.email %></td>
           <td><%= student.address %></td>
-          <td><%= link_to 'Show', student %></td>
+          <!--<td><%#= link_to 'Show', student %></td> -->
           <td><%= link_to 'Edit', edit_student_path(student) %></td>
-          <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,41 +1,54 @@
-<table>
-  <thead>
-    <tr>
-      <th>Full name</th>
-      <th>Father name</th>
-      <th>Date of joining</th>
-      <th>Date of birth</th>
-      <th>Married</th>
-      <th>Spouse name</th>
-      <th>Aniversary date</th>
-      <th>Qualification</th>
-      <th>Role</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teaching_staffs.each do |teaching_staff| %>
-      <tr>
-        <td><%= teaching_staff.full_name %></td>
-        <td><%= teaching_staff.father_name %></td>
-        <td><%= teaching_staff.date_of_joining %></td>
-        <td><%= teaching_staff.date_of_birth %></td>
-        <td><%= teaching_staff.married %></td>
-        <td><%= teaching_staff.spouse_name %></td>
-        <td><%= teaching_staff.aniversary_date %></td>
-        <td><%= teaching_staff.qualification %></td>
-        <td><%= teaching_staff.role %></td>
-        <td><%= link_to 'Show', teaching_staff %></td>
-        <td><%= link_to 'Edit', edit_teaching_staff_path(teaching_staff) %></td>
-        <td><%= link_to 'Destroy', teaching_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <h1 style="text-align:center">Listing Teaching Staffs</h1>
+  <div>
+    <%= form_tag(teaching_staffs_path, :method => "get", id: "search-form") do %>
+      <table>
+        <tr>
+          <td><%= text_field_tag :search, params[:search], placeholder: "Search..." %></td>
+          <td><%= submit_tag "Search", :name => nil, :class => "button tiny success" %></td>
+        </tr>
+      </table>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Full name</th>
+        <th>Father name</th>
+        <th>Date of joining</th>
+        <th>Date of birth</th>
+        <th>Married</th>
+        <th>Spouse name</th>
+        <th>Aniversary date</th>
+        <th>Qualification</th>
+        <th>Role</th>
+        <!-- <th></th> -->
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-<br>
+    <tbody>
+      <% @teaching_staffs.each do |teaching_staff| %>
+        <tr>
+          <td><%= teaching_staff.full_name %></td>
+          <td><%= teaching_staff.father_name %></td>
+          <td><%= teaching_staff.date_of_joining %></td>
+          <td><%= teaching_staff.date_of_birth %></td>
+          <td><%= teaching_staff.married %></td>
+          <td><%= teaching_staff.spouse_name %></td>
+          <td><%= teaching_staff.aniversary_date %></td>
+          <td><%= teaching_staff.qualification %></td>
+          <td><%= teaching_staff.role %></td>
+          <!--<td><%#= link_to 'Show', teaching_staff %></td> -->
+          <td><%= link_to 'Edit', edit_teaching_staff_path(teaching_staff) %></td>
+          <td><%= link_to 'Delete', teaching_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @teaching_staffs %>
+  <br>
 
-<%= link_to 'New Teaching staff', new_teaching_staff_path %>
+  <%#= link_to 'New Student', new_student_path %>
+</div>
