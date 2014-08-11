@@ -1,0 +1,49 @@
+<h1>Listing non_teaching_staffs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Father name</th>
+      <th>Date of birth</th>
+      <th>Date of joining</th>
+      <th>Married</th>
+      <th>Spouse name</th>
+      <th>Aniversary date</th>
+      <th>Qualification</th>
+      <th>Role</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Address</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @non_teaching_staffs.each do |non_teaching_staff| %>
+      <tr>
+        <td><%= non_teaching_staff.full_name %></td>
+        <td><%= non_teaching_staff.father_name %></td>
+        <td><%= non_teaching_staff.date_of_birth %></td>
+        <td><%= non_teaching_staff.date_of_joining %></td>
+        <td><%= non_teaching_staff.married %></td>
+        <td><%= non_teaching_staff.spouse_name %></td>
+        <td><%= non_teaching_staff.aniversary_date %></td>
+        <td><%= non_teaching_staff.qualification %></td>
+        <td><%= non_teaching_staff.role %></td>
+        <td><%= non_teaching_staff.email %></td>
+        <td><%= non_teaching_staff.mobile %></td>
+        <td><%= non_teaching_staff.address %></td>
+        <td><%= link_to 'Show', non_teaching_staff %></td>
+        <td><%= link_to 'Edit', edit_non_teaching_staff_path(non_teaching_staff) %></td>
+        <td><%= link_to 'Destroy', non_teaching_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Non teaching staff', new_non_teaching_staff_path %>

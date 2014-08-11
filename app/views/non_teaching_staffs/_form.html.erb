@@ -1,20 +1,20 @@
 <div class="row">
   <div id="login_window">
-    <%= form_for(@teaching_staff) do |f| %>
-      <fieldset>
-        <legend>Create Teaching Staff</legend>
-        <% if @teaching_staff.errors.any? %>
+    <%= form_for(@non_teaching_staff) do |f| %>
+     <fieldset>
+        <legend>Create Non Teaching Staff</legend>
+        <% if @non_teaching_staff.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@teaching_staff.errors.count, "error") %> prohibited this teaching_staff from being saved:</h2>
-      
+            <h2><%= pluralize(@non_teaching_staff.errors.count, "error") %> prohibited this non_teaching_staff from being saved:</h2>
+
             <ul>
-            <% @teaching_staff.errors.full_messages.each do |msg| %>
+            <% @non_teaching_staff.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
             </ul>
           </div>
         <% end %>
-      
+
         <div class="field">
           <%= f.label :full_name %><br>
           <%= f.text_field :full_name %>
@@ -25,11 +25,11 @@
         </div>
         <div class="field">
           <%= f.label :date_of_birth %><br>
-          <%= f.text_field :date_of_birth, :class=>"span2",  :value =>  @teaching_staff.date_of_birth.blank? ? Date.today.strftime("%d/%m/%Y") : @teaching_staff.date_of_birth, "data-date" => "17/4/1986", "data-date-format" => "dd/mm/yyyy" %>
+          <%= f.text_field :date_of_birth, :class=>"span2",  :value =>  @non_teaching_staff.date_of_birth.blank? ? Date.today.strftime("%d/%m/%Y") : @non_teaching_staff.date_of_birth, "data-date" => "17/4/1986", "data-date-format" => "dd/mm/yyyy" %>
         </div>
         <div class="field">
           <%= f.label :date_of_joining %><br>
-          <%= f.text_field :date_of_joining, :class=>"span2",  :value =>  @teaching_staff.date_of_joining.blank? ? Date.today.strftime("%d/%m/%Y") : @teaching_staff.date_of_joining, "data-date" => "17/4/1986", "data-date-format" => "dd/mm/yyyy"  %>
+          <%= f.text_field :date_of_joining, :class=>"span2",  :value =>  @non_teaching_staff.date_of_joining.blank? ? Date.today.strftime("%d/%m/%Y") : @non_teaching_staff.date_of_joining, "data-date" => "17/4/1986", "data-date-format" => "dd/mm/yyyy"  %>
         </div>
         <div class="field">
           <%= f.label :qualification %><br>
@@ -49,7 +49,7 @@
         </div>
         <div class="field spouse_details">
           <%= f.label :aniversary_date %><br>
-          <%= f.text_field :aniversary_date, :class=>"span2",  :value =>  @teaching_staff.aniversary_date.blank? ? Date.today.strftime("%d/%m/%Y") : @teaching_staff.aniversary_date, "data-date" => "17/4/1986", "data-date-format" => "dd/mm/yyyy"  %>
+          <%= f.text_field :aniversary_date, :class=>"span2",  :value =>  @non_teaching_staff.aniversary_date.blank? ? Date.today.strftime("%d/%m/%Y") : @non_teaching_staff.aniversary_date, "data-date" => "17/4/1986", "data-date-format" => "dd/mm/yyyy"  %>
         </div>
         <div class="field">
           <%= f.label :email %><br>
@@ -65,7 +65,7 @@
         </div>
         <div class="actions">
           <%= f.submit nil, :class => "button tiny" %>
-          <%= link_to 'Back', teaching_staffs_path, :class => "button tiny" %>
+          <%= link_to 'Back', non_teaching_staffs_path, :class => "button tiny" %>
         </div>
       </fieldset>
     <% end %>
@@ -75,9 +75,9 @@
 <script>
   $(document).ready(function(){
     $(".spouse_details").hide();
-    $('#teaching_staff_date_of_birth').fdatepicker();
-    $('#teaching_staff_date_of_joining').fdatepicker();
-    $('#teaching_staff_aniversary_date').fdatepicker();
+    $('#non_teaching_staff_date_of_birth').fdatepicker();
+    $('#non_teaching_staff_date_of_joining').fdatepicker();
+    $('#non_teaching_staff_aniversary_date').fdatepicker();
   });
 
   $("#non_teaching_staff_married").click(function(){

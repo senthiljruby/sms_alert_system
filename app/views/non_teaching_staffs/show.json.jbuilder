@@ -1,0 +1,1 @@
+json.extract! @non_teaching_staff, :id, :full_name, :father_name, :date_of_birth, :date_of_joining, :married, :spouse_name, :aniversary_date, :qualification, :role, :email, :mobile, :address, :created_at, :updated_at

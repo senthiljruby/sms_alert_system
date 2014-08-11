@@ -1,4 +1,6 @@
 Reminder::Application.routes.draw do
+  resources :non_teaching_staffs
+
   resources :teaching_staffs
 
   resources :students
